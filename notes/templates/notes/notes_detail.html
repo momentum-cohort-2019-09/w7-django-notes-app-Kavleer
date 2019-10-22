@@ -4,10 +4,10 @@
 {% block title %} Notes - {{ notes.title }}{% endblock %}
 
 {% block content %}
-  <h3>{{ notes.title }}</h3>
+  <h3>{{ note.title }}</h3>
   <ol>
-    {% for item in notes.items %}
-      <li>{{ item|markdownify }}</li>
-    {% endfor %}
+  
+      <li>{{ note.body|markdownify }}</li>
+  
   </ol>
 {% endblock %}
