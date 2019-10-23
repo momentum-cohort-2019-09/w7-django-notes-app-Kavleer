@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from notes.data import NOTES
+from notes.models import Notes
 
 # Create your views here.
 def notes_list(request):
-  return render(request, "notes/notes_list.html", {"notes": NOTES,})
+  notes= Notes.objects.all()
+  return render(request, "notes/notes_list.html", {"notes": Notes,})
 
-def notes_detail(request, id):
-  note = NOTES[id]
-  return render(request, "notes/notes_detail.html", {"note": note})
+def note_detail(request, id):
+  note = Notes.objects.get(pk=pk)
+  return render(request, "notes/note_detail.html", {"note": note})
