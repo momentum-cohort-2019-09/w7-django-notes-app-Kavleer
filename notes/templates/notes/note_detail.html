@@ -1,0 +1,13 @@
+{% extends "notes/base.html" %}
+{% load markdownify %}
+
+{% block title %} Notes - {{ note.title }}{% endblock %}
+
+{% block content %}
+  <h3>{{ note.title }}</h3>
+  <ol>
+  
+      <li>{{ note.description|markdownify }}</li>
+  
+  </ol>
+{% endblock %}
