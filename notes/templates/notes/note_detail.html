@@ -3,11 +3,26 @@
 
 {% block title %} Notes - {{ note.title }}{% endblock %}
 
+{% load static %}
+
+{% block head %}
+<script src="{% static 'js.note_detail.js' %}" defer></script>
+{% endblock %}
+
 {% block content %}
-  <h3>{{ note.title }}</h3>
+  <h3>{{ note.title }}
+    <small>
+      <a href="{% url 'note_edit' pk=note.pk %}">Edit</a>
+      <a href="{% url 'note_delete' pk=note.pk %}" class="text-danger">Delete</a>
+    </small>
+  </h3>
+
+  {% if note.description %}
   <ol>
   
       <li>{{ note.description|markdownify }}</li>
   
   </ol>
+  {% endif %}
+  
 {% endblock %}
